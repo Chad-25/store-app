@@ -1,0 +1,27 @@
+<h1> <%= @product.name %> </h1>
+  <table border='1'>
+    <th> Product Name </th>
+    <th> Price </th>
+    <th> Quantity </th>
+    <th> Value </th>
+    <th> Edit </th>
+    <th> Delete </th>
+
+    <tr>
+        <td> <%= @product.name %> </td>
+        <td> <%= @product.price %> </td>
+        <td> <%= @product.quantity %> </td>
+        <td> <%= @product.price * @product.quantity %> </td>
+        <td>
+          <button> <%= link_to "Edit Product", edit_product_path %> </button> </td>
+        <td>
+          <%= button_to "Delete Product", @product, method: :delete, onclick: "return confirm('Are you sure?');" %>
+        </td>
+    </tr>
+  </table>
+<br>
+
+
+
+<%= link_to "Create New Product", new_product_path %> <br>
+<%= link_to "Back to Main", products_path %>
