@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
+
   def index
     @products = Product.all.order(name: :asc)
 
@@ -8,11 +10,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
-
-    if !(@product)
-      redirect_to root_path
-    end
   end
 
   def new
@@ -30,12 +27,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find_by(id: params[:id])
   end
 
   def update
-    @product = Product.find_by(id: params[:id])
-
     if @product.update(product_params)
       redirect_to @product
     else
@@ -44,7 +38,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy!
     redirect_to root_path
 
@@ -54,5 +47,11 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :price, :quantity)
+  end
+
+  def find_product
+    @product = Product.find_by(id: params[:id])
+
+    redirect_to root_path if !@product
   end
 end
