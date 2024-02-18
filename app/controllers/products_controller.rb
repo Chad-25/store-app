@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     @products = Product.all.order(name: :asc)
 
     if params[:search]
-      @products = @products.where("name LIKE ?", "%#{params[:search]}%")
+      @products = @products.where("lower(name) LIKE ?", "%#{params[:search].downcase}%")
     end
   end
 

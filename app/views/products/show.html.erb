@@ -3,7 +3,6 @@
     <th> Product Name </th>
     <th> Price </th>
     <th> Quantity </th>
-    <th> Value </th>
     <th> Edit </th>
     <th> Delete </th>
 
@@ -11,7 +10,6 @@
         <td> <%= @product.name %> </td>
         <td> <%= @product.price %> </td>
         <td> <%= @product.quantity %> </td>
-        <td> <%= @product.price * @product.quantity %> </td>
         <td>
           <button> <%= link_to "Edit Product", edit_product_path %> </button> </td>
         <td>
