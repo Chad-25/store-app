@@ -1,13 +1,17 @@
 <h1> <%= @product.name %> </h1>
   <table border='1'>
+    <th> Product Photo </th>
     <th> Product Name </th>
+    <th> Product Description </th>
     <th> Price </th>
     <th> Quantity </th>
     <th> Edit </th>
     <th> Delete </th>
 
     <tr>
+        <td> <%= image_tag @product.photo if @product.photo.attached? %> </td>
         <td> <%= @product.name %> </td>
+        <td> <%= @product.description %> </td>
         <td> <%= @product.price %> </td>
         <td> <%= @product.quantity %> </td>
         <td>
