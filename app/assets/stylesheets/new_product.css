@@ -31,7 +31,6 @@
 }
 
 .form-submit {
-    /* background-color: #4caf50; */
     background-color: #d11616;
     color: white;
     border: none;
@@ -41,7 +40,6 @@
 }
 
 .form-submit:hover {
-    /* background-color: #45a049; */
     background-color: #d11616af;
 }
 

@@ -39,7 +39,16 @@
     font-weight: bold;
 }
 
-.create-form-submit {
+.search-input {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.create-form-submit,
+.search-index {
     background-color: #d11616;
     color: white;
     border: none;
@@ -53,6 +62,7 @@
     color: inherit;
 }
 
-.create-form-submit:hover {
+.create-form-submit:hover,
+.search-index:hover {
     background-color: #d11616af;
 }
