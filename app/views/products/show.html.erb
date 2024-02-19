@@ -1,29 +1,40 @@
-<h1> <%= @product.name %> </h1>
-  <table border='1'>
-    <th> Product Photo </th>
-    <th> Product Name </th>
-    <th> Product Description </th>
-    <th> Price </th>
-    <th> Quantity </th>
-    <th> Edit </th>
-    <th> Delete </th>
-
+<table class="product-table">
+  <thead>
     <tr>
-        <td> <%= image_tag @product.photo if @product.photo.attached? %> </td>
-        <td> <%= @product.name %> </td>
-        <td> <%= @product.description %> </td>
-        <td> <%= @product.price %> </td>
-        <td> <%= @product.quantity %> </td>
-        <td>
-          <button> <%= link_to "Edit Product", edit_product_path %> </button> </td>
-        <td>
-          <%= button_to "Delete Product", @product, method: :delete, onclick: "return confirm('Are you sure?');" %>
-        </td>
+      <th>Product Photo</th>
+      <th>Product Name</th>
+      <th>Product Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
-  </table>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="product-photo-cell">
+        <%= image_tag @product.photo if @product.photo.attached? %>
+      </td>
+      <td class="product-name-cell"><%= @product.name %></td>
+      <td class="product-description-cell"><%= @product.description %></td>
+      <td class="product-price-cell"><%= @product.price %></td>
+      <td class="product-quantity-cell"><%= @product.quantity %></td>
+      <td class="product-edit-cell">
+        <button class="edit-button"><%= link_to "Edit Product", edit_product_path(@product) %></button>
+      </td>
+      <td class="product-delete-cell-container">
+        <%= button_to "Delete Product", @product, method: :delete, class: "product-delete-cell", onclick: "return confirm('Are you sure?');" %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <br>
 
+<button class="show-form-submit">
+  <%= link_to "Create New Product", new_product_path %>
+</button>
+<button class="show-form-submit">
+  <%= link_to "Back to Main", products_path %>
+</button>
 
-
-<%= link_to "Create New Product", new_product_path %> <br>
-<%= link_to "Back to Main", products_path %>
+<%= stylesheet_link_tag "show_product", media: "all", "data-turbolinks-track": "reload" %>

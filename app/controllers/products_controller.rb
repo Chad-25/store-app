@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.photo = params[:product][:photo] if params[:product][:photo].present?
 
     if @product.save
       redirect_to products_path
